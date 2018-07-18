@@ -55,7 +55,11 @@ public class StockService {
 	}
 	
 	public String deleteStock(String symbol) {
+		Stock stock = stockRepository.findStockBySymbol(symbol);
 		System.out.println("The ticker symbol is: "+symbol);
+		if(stock == null) {
+			throw new StockNotFoundException(symbol);
+		}
 		stockRepository.deleteBySymbol(symbol);
 		return "Deleted";
 	}

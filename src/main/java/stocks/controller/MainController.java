@@ -54,7 +54,7 @@ public class MainController {
 		return stockService.getStock(symbol);
 	}
 
-	@ResponseStatus(value=HttpStatus.CREATED)
+//	@ResponseStatus(value=HttpStatus.NO_CONTENT)
 	@DeleteMapping("/watchlist/{id}")
 	public @ResponseBody String deleteStock(@PathVariable String id) {
 		System.out.println("Serving the delete request!!");
